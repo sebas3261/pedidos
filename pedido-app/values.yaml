@@ -125,3 +125,24 @@ db:
   primary:
     initdb:
       scriptsConfigMap: "db-init-sql"
+frontend:
+  replicaCount: 1
+  image:
+    repository: sebas3261/frontend   # <-- cambia al tuyo
+    tag: "1.0.0"                                # <-- cambia al tag que subiste
+    pullPolicy: IfNotPresent
+  containerPort: 5173                             # si sirves con nginx. Si es vite/dev-server usa 5173
+  service:
+    type: ClusterIP
+    port: 80
+
+ingress:
+  enabled: true
+  className: nginx
+  hosts:
+    - host: pedido.local                         # <-- pon tu dominio o el host del LB
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []                                        # agrega config TLS cuando tengas dominio/cert
+
