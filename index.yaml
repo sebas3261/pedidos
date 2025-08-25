@@ -1,0 +1,19 @@
+apiVersion: v1
+entries:
+  pedido-app:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-08-25T10:33:08.324562-05:00"
+    dependencies:
+    - alias: db
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.7.26
+    description: A Helm chart for Kubernetes
+    digest: ca3763f8059c0266dcb886a63d5ff276621315e79cdfcff57962f2f59d758d07
+    name: pedido-app
+    type: application
+    urls:
+    - pedido-app-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-08-25T10:33:08.319468-05:00"
