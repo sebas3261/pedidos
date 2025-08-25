@@ -140,9 +140,14 @@ ingress:
   enabled: true
   className: nginx
   hosts:
-    - host: pedido.local                         # <-- pon tu dominio o el host del LB
+    - host: ""                        # <-- pon tu dominio o el host del LB
       paths:
-        - path: /
-          pathType: Prefix
+         - path: /
+           pathType: Prefix
+           backend:
+            service:
+              name: sweetmatch-frontend   # nombre del service del frontend
+              port:
+                number: 80
   tls: []                                        # agrega config TLS cuando tengas dominio/cert
 
