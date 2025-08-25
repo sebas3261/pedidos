@@ -22,5 +22,6 @@ spec:
           image: "{{ .Values.frontend.image.repository }}:{{ .Values.frontend.image.tag }}"
           imagePullPolicy: {{ .Values.frontend.image.pullPolicy }}
           ports:
-            - containerPort: {{ .Values.frontend.containerPort }}
+            - name: http
+              containerPort: {{ .Values.frontend.containerPort }}
           # resources: agrega requests/limits cuando quieras
