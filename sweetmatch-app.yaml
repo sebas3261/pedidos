@@ -1,0 +1,418 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: "2025-08-25T15:56:25Z"
+  generation: 416
+  name: sweetmatch
+  namespace: argocd
+  resourceVersion: "1536059"
+  uid: a7f56a68-f44b-4e68-837f-53b9fdf78f0c
+spec:
+  destination:
+    namespace: sweetmatch
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: pedido-app
+    repoURL: https://sebas3261.github.io/pedidos
+    targetRevision: 0.1.6
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: true
+status:
+  controllerNamespace: argocd
+  health:
+    lastTransitionTime: "2025-08-26T00:20:01Z"
+    status: Progressing
+  history:
+  - deployStartedAt: "2025-08-25T17:08:00Z"
+    deployedAt: "2025-08-25T17:08:03Z"
+    id: 2
+    initiatedBy:
+      automated: true
+    revision: 0.1.2
+    source:
+      chart: pedido-app
+      repoURL: https://sebas3261.github.io/pedidos
+      targetRevision: 0.1.2
+  - deployStartedAt: "2025-08-25T17:23:46Z"
+    deployedAt: "2025-08-25T17:23:48Z"
+    id: 3
+    initiatedBy:
+      automated: true
+    revision: 0.1.3
+    source:
+      chart: pedido-app
+      repoURL: https://sebas3261.github.io/pedidos
+      targetRevision: 0.1.3
+  - deployStartedAt: "2025-08-25T17:42:34Z"
+    deployedAt: "2025-08-25T17:42:36Z"
+    id: 4
+    initiatedBy:
+      automated: true
+    revision: 0.1.4
+    source:
+      chart: pedido-app
+      repoURL: https://sebas3261.github.io/pedidos
+      targetRevision: 0.1.4
+  - deployStartedAt: "2025-08-26T00:19:58Z"
+    deployedAt: "2025-08-26T00:20:01Z"
+    id: 5
+    initiatedBy:
+      automated: true
+    revision: 0.3.0
+    source:
+      chart: pedido-app
+      repoURL: https://sebas3261.github.io/pedidos
+      targetRevision: 0.3.0
+  - deployStartedAt: "2025-08-26T01:35:16Z"
+    deployedAt: "2025-08-26T01:35:19Z"
+    id: 6
+    initiatedBy:
+      automated: true
+    revision: 0.3.8
+    source:
+      chart: pedido-app
+      repoURL: https://sebas3261.github.io/pedidos
+      targetRevision: 0.3.8
+  - deployStartedAt: "2025-08-26T01:39:02Z"
+    deployedAt: "2025-08-26T01:39:04Z"
+    id: 7
+    initiatedBy:
+      automated: true
+    revision: 0.3.9
+    source:
+      chart: pedido-app
+      repoURL: https://sebas3261.github.io/pedidos
+      targetRevision: 0.3.9
+  - deployStartedAt: "2025-08-26T01:46:25Z"
+    deployedAt: "2025-08-26T01:46:27Z"
+    id: 8
+    initiatedBy:
+      automated: true
+    revision: 0.3.10
+    source:
+      chart: pedido-app
+      repoURL: https://sebas3261.github.io/pedidos
+      targetRevision: 0.3.10
+  - deployStartedAt: "2025-08-26T02:13:10Z"
+    deployedAt: "2025-08-26T02:13:12Z"
+    id: 9
+    initiatedBy:
+      automated: true
+    revision: 0.1.5
+    source:
+      chart: pedido-app
+      repoURL: https://sebas3261.github.io/pedidos
+      targetRevision: 0.1.5
+  - deployStartedAt: "2025-08-26T02:20:01Z"
+    deployedAt: "2025-08-26T02:20:04Z"
+    id: 10
+    initiatedBy:
+      automated: true
+    revision: 0.1.6
+    source:
+      chart: pedido-app
+      repoURL: https://sebas3261.github.io/pedidos
+      targetRevision: 0.1.6
+  - deployStartedAt: "2025-08-26T02:25:20Z"
+    deployedAt: "2025-08-26T02:25:22Z"
+    id: 11
+    initiatedBy:
+      username: admin
+    revision: 0.1.6
+    source:
+      chart: pedido-app
+      repoURL: https://sebas3261.github.io/pedidos
+      targetRevision: 0.1.6
+  operationState:
+    finishedAt: "2025-08-26T02:25:22Z"
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        username: admin
+      retry: {}
+      sync:
+        prune: true
+        revision: 0.1.6
+        syncStrategy:
+          hook: {}
+    phase: Succeeded
+    startedAt: "2025-08-26T02:25:20Z"
+    syncResult:
+      resources:
+      - group: ""
+        hookPhase: Succeeded
+        kind: ConfigMap
+        message: pruned
+        name: sweetmatch-backend-config
+        namespace: sweetmatch
+        status: Pruned
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Succeeded
+        kind: Service
+        message: pruned
+        name: sweetmatch-backend
+        namespace: sweetmatch
+        status: Pruned
+        syncPhase: Sync
+        version: v1
+      - group: apps
+        hookPhase: Succeeded
+        images:
+        - sebas3261/backend:1.0.2
+        kind: Deployment
+        message: pruned
+        name: sweetmatch-backend
+        namespace: sweetmatch
+        status: Pruned
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Succeeded
+        kind: Service
+        message: pruned
+        name: sweetmatch-pedido-app-backend
+        namespace: sweetmatch
+        status: Pruned
+        syncPhase: Sync
+        version: v1
+      - group: networking.k8s.io
+        hookPhase: Running
+        kind: NetworkPolicy
+        message: networkpolicy.networking.k8s.io/sweetmatch-db configured
+        name: sweetmatch-db
+        namespace: sweetmatch
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: policy
+        hookPhase: Running
+        kind: PodDisruptionBudget
+        message: poddisruptionbudget.policy/sweetmatch-db configured
+        name: sweetmatch-db
+        namespace: sweetmatch
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: ServiceAccount
+        message: serviceaccount/sweetmatch-pedido-app unchanged
+        name: sweetmatch-pedido-app
+        namespace: sweetmatch
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: ServiceAccount
+        message: serviceaccount/sweetmatch-db unchanged
+        name: sweetmatch-db
+        namespace: sweetmatch
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: Secret
+        message: secret/sweetmatch-db unchanged
+        name: sweetmatch-db
+        namespace: sweetmatch
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: ConfigMap
+        message: configmap/db-init-sql unchanged
+        name: db-init-sql
+        namespace: sweetmatch
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: Service
+        message: service/sweetmatch-pedido-app unchanged
+        name: sweetmatch-pedido-app
+        namespace: sweetmatch
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: Service
+        message: service/sweetmatch-db configured
+        name: sweetmatch-db
+        namespace: sweetmatch
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: Service
+        message: service/sweetmatch-db-hl unchanged
+        name: sweetmatch-db-hl
+        namespace: sweetmatch
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: Service
+        message: service/sweetmatch-frontend unchanged
+        name: sweetmatch-frontend
+        namespace: sweetmatch
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apps
+        hookPhase: Running
+        images:
+        - sebas3261/frontend:1.0.0
+        kind: Deployment
+        message: deployment.apps/sweetmatch-frontend unchanged
+        name: sweetmatch-frontend
+        namespace: sweetmatch
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apps
+        hookPhase: Running
+        images:
+        - nginx:1.16.0
+        kind: Deployment
+        message: deployment.apps/sweetmatch-pedido-app unchanged
+        name: sweetmatch-pedido-app
+        namespace: sweetmatch
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apps
+        hookPhase: Running
+        images:
+        - docker.io/bitnami/postgresql:17.6.0-debian-12-r0
+        kind: StatefulSet
+        message: statefulset.apps/sweetmatch-db configured
+        name: sweetmatch-db
+        namespace: sweetmatch
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: networking.k8s.io
+        hookPhase: Running
+        kind: Ingress
+        message: ingress.networking.k8s.io/sweetmatch-ingress configured
+        name: sweetmatch-ingress
+        namespace: sweetmatch
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      revision: 0.1.6
+      source:
+        chart: pedido-app
+        repoURL: https://sebas3261.github.io/pedidos
+        targetRevision: 0.1.6
+  reconciledAt: "2025-08-26T02:46:57Z"
+  resourceHealthSource: appTree
+  resources:
+  - kind: ConfigMap
+    name: db-init-sql
+    namespace: sweetmatch
+    status: Synced
+    version: v1
+  - kind: Secret
+    name: sweetmatch-db
+    namespace: sweetmatch
+    status: Synced
+    version: v1
+  - kind: Service
+    name: sweetmatch-db
+    namespace: sweetmatch
+    status: Synced
+    version: v1
+  - kind: Service
+    name: sweetmatch-db-hl
+    namespace: sweetmatch
+    status: Synced
+    version: v1
+  - kind: Service
+    name: sweetmatch-frontend
+    namespace: sweetmatch
+    status: Synced
+    version: v1
+  - kind: Service
+    name: sweetmatch-pedido-app
+    namespace: sweetmatch
+    status: Synced
+    version: v1
+  - kind: ServiceAccount
+    name: sweetmatch-db
+    namespace: sweetmatch
+    status: Synced
+    version: v1
+  - kind: ServiceAccount
+    name: sweetmatch-pedido-app
+    namespace: sweetmatch
+    status: Synced
+    version: v1
+  - group: apps
+    kind: Deployment
+    name: sweetmatch-frontend
+    namespace: sweetmatch
+    status: Synced
+    version: v1
+  - group: apps
+    kind: Deployment
+    name: sweetmatch-pedido-app
+    namespace: sweetmatch
+    status: Synced
+    version: v1
+  - group: apps
+    kind: StatefulSet
+    name: sweetmatch-db
+    namespace: sweetmatch
+    status: Synced
+    version: v1
+  - group: networking.k8s.io
+    kind: Ingress
+    name: sweetmatch-ingress
+    namespace: sweetmatch
+    status: Synced
+    version: v1
+  - group: networking.k8s.io
+    kind: NetworkPolicy
+    name: sweetmatch-db
+    namespace: sweetmatch
+    status: Synced
+    version: v1
+  - group: policy
+    kind: PodDisruptionBudget
+    name: sweetmatch-db
+    namespace: sweetmatch
+    status: Synced
+    version: v1
+  sourceHydrator: {}
+  sourceType: Helm
+  summary:
+    externalURLs:
+    - http://134.199.176.72/
+    images:
+    - docker.io/bitnami/postgresql:17.6.0-debian-12-r0
+    - nginx:1.16.0
+    - sebas3261/frontend:1.0.0
+  sync:
+    comparedTo:
+      destination:
+        namespace: sweetmatch
+        server: https://kubernetes.default.svc
+      source:
+        chart: pedido-app
+        repoURL: https://sebas3261.github.io/pedidos
+        targetRevision: 0.1.6
+    revision: 0.1.6
+    status: Synced

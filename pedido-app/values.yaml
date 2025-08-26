@@ -125,13 +125,12 @@ affinity: {}
 db:
   auth:
     existingSecret: sweetmatch-db
-    # di a Bitnami cómo se llaman tus llaves dentro del Secret:
     secretKeys:
-      adminPasswordKey: postgres-password   # para el superusuario postgres
-      userPasswordKey: password             # para el usuario appuser (si lo usas)
-    username: appuser        # opcional: si quieres usuario app
-    database: appdb          # opcional: crea DB inicial
-
+      adminPasswordKey: postgres-password
+      userPasswordKey: password
+    username: appuser
+    database: appdb
+    updatePassword: true   # <--- añade esto
   primary:
     persistence:
       enabled: true
@@ -139,6 +138,7 @@ db:
       storageClass: do-block-storage
     volumePermissions:
       enabled: true
+
 
 frontend:
   replicaCount: 1
