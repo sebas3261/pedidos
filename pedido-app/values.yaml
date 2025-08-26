@@ -197,9 +197,9 @@ backend:
 ingress:
   enabled: true
   className: nginx
-  annotations: {}
+  annotations: {}   # <— sin rewrite aquí
   hosts:
-    - host: ""
+    - host: ""      # o tu dominio, p.ej. pedido.local
       paths:
         - path: /
           pathType: Prefix
@@ -211,6 +211,7 @@ ingress:
           service:
             name: sweetmatch-backend
             port: 3000
+
 
   tls: []                                        # agrega config TLS cuando tengas dominio/cert
 
