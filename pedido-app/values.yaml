@@ -131,7 +131,7 @@ frontend:
     repository: sebas3261/frontend   # <-- cambia al tuyo
     tag: "1.0.0"                                # <-- cambia al tag que subiste
     pullPolicy: IfNotPresent
-  containerPort: 5173                             # si sirves con nginx. Si es vite/dev-server usa 5173
+  containerPort: 80                             # si sirves con nginx. Si es vite/dev-server usa 5173
   service:
     type: ClusterIP
     port: 80
