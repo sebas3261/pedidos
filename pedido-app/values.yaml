@@ -197,15 +197,20 @@ backend:
 ingress:
   enabled: true
   className: nginx
+  annotations: {}
   hosts:
-    - host: ""                        # <-- pon tu dominio o el host del LB
+    - host: ""
       paths:
-         - path: /
-           pathType: Prefix
-           backend:
-            service:
-              name: sweetmatch-frontend   # nombre del service del frontend
-              port:
-                number: 80
+        - path: /
+          pathType: Prefix
+          service:
+            name: sweetmatch-frontend
+            port: 80
+        - path: /api
+          pathType: Prefix
+          service:
+            name: sweetmatch-backend
+            port: 3000
+
   tls: []                                        # agrega config TLS cuando tengas dominio/cert
 
