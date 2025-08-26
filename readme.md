@@ -43,12 +43,13 @@ charts/
   pedido-app/
     Chart.yaml
     values.yaml
-    values-dev.yaml
-    values-prod.yaml
     templates/
-      backend/
-      frontend/
-      db/
+      backend-deployment.yaml
+      backend-service.yaml
+      ingres.yaml
+      frontend-deployment.yaml
+      frontend-service.yaml
+      intdb-configmap.yaml
 ```
 
 ------------------------------------------------------------------------
