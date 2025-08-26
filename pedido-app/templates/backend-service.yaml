@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-backend
+  labels:
+    app.kubernetes.io/name: backend
+    app.kubernetes.io/instance: {{ .Release.Name }}
+spec:
+  type: {{ default "ClusterIP" .Values.backend.service.type }}
+  selector:
+    app.kubernetes.io/name: backend
+    app.kubernetes.io/instance: {{ .Release.Name }}
+  ports:
+    - name: http
+      port: {{ default 3000 .Values.backend.service.port }}
+      targetPort: {{ default 3000 .Values.backend.containerPort }}
