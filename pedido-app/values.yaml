@@ -121,10 +121,25 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
 db:
+  auth:
+    existingSecret: sweetmatch-db
+    # di a Bitnami cómo se llaman tus llaves dentro del Secret:
+    secretKeys:
+      adminPasswordKey: postgres-password   # para el superusuario postgres
+      userPasswordKey: password             # para el usuario appuser (si lo usas)
+    username: appuser        # opcional: si quieres usuario app
+    database: appdb          # opcional: crea DB inicial
+
   primary:
-    initdb:
-      scriptsConfigMap: "db-init-sql"
+    persistence:
+      enabled: true
+      size: 8Gi
+      storageClass: do-block-storage
+    volumePermissions:
+      enabled: true
+
 frontend:
   replicaCount: 1
   image:
